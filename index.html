@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼体育 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, Arial, sans-serif;
+            background-color: #faf8f5;
+            color: #2e2b28;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrapper {
+            max-width: 840px;
+            margin: 0 auto;
+            background: #fffdfb;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            padding: 2.8rem 2.4rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 540;
+            letter-spacing: -0.01em;
+            color: #1f1c19;
+            border-left: 6px solid #d4b48a;
+            padding-left: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #6f6862;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e5ddd5;
+            padding-bottom: 1.2rem;
+        }
+
+        .intro-box {
+            background: #f5f0ea;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.2rem;
+            border-left: 5px solid #c9af8d;
+        }
+
+        .intro-box p {
+            margin-bottom: 0.6rem;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+            margin: 2.4rem 0;
+        }
+
+        .feature-card {
+            flex: 1 1 200px;
+            background: #fcf9f6;
+            padding: 1.5rem 1.2rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ece5dc;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: #d0beaa;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #3c342d;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #5b534b;
+        }
+
+        .highlight-note {
+            background: #ede7df;
+            border-radius: 16px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0;
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+
+        .highlight-note::before {
+            content: "💡";
+            font-size: 1.6rem;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .highlight-note p {
+            font-size: 0.98rem;
+            color: #3a332c;
+        }
+
+        .use-tips {
+            background: #fffbf7;
+            border: 1px dashed #d6c8b8;
+            border-radius: 18px;
+            padding: 1.6rem 2rem;
+            margin: 2.2rem 0;
+        }
+
+        .use-tips h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2f2924;
+            margin-bottom: 0.8rem;
+        }
+
+        .use-tips ul {
+            padding-left: 1.2rem;
+            list-style: none;
+        }
+
+        .use-tips li {
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: #4b433b;
+        }
+
+        .use-tips li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #b5997a;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .faq-mini {
+            margin: 2.4rem 0 1.2rem;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e5ddd5;
+            padding: 0.8rem 0;
+        }
+
+        .faq-mini details:first-of-type {
+            border-top: 1px solid #e5ddd5;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3c342d;
+            padding: 0.2rem 0;
+            font-size: 1rem;
+        }
+
+        .faq-mini summary::marker {
+            color: #b5997a;
+        }
+
+        .faq-mini details p {
+            padding: 0.6rem 0 0.2rem 0.8rem;
+            color: #565049;
+            font-size: 0.95rem;
+        }
+
+        .credit-line {
+            margin-top: 2.6rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid #e5ddd5;
+            font-size: 0.9rem;
+            color: #7b736b;
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.8rem;
+        }
+
+        .credit-line a {
+            color: #7b6552;
+            text-decoration: none;
+            border-bottom: 1px solid #d5c9bc;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .credit-line a:hover {
+            border-bottom-color: #7b6552;
+            color: #3f332a;
+        }
+
+        .btn-neutral {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #d0beaa;
+            border-radius: 40px;
+            padding: 0.4rem 1.3rem;
+            font-size: 0.85rem;
+            color: #4a4139;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-neutral:hover {
+            background: #ede3d7;
+            border-color: #b5997a;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page-wrapper {
+                padding: 1.8rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+            }
+            .feature-card {
+                flex: 1 1 auto;
+            }
+            .highlight-note {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .credit-line {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <h1>乐鱼体育 · 站点介绍</h1>
+    <div class="subhead">一份平实、克制的说明，帮你了解这个体育内容平台</div>
+
+    <div class="intro-box">
+        <p><strong>乐鱼体育</strong> 是一个聚焦体育资讯与赛事相关内容的站点。它并非官方机构或博彩平台，而是一个供爱好者浏览体育新闻、赛事回顾、数据整理的普通网站。如果你平时关注各类体育项目，这里或许能成为你获取信息的一处参考。</p>
+        <p>站内内容由编辑团队收集整理，来源多基于公开体育数据与媒体报道，尽量保持客观与时效。无论你热衷足球、篮球还是网球，都可以在这里找到对应的摘要与讨论。</p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>📋 信息聚合</h3>
+            <p>将主流联赛、杯赛、球员动态等内容按栏目整理，方便快速浏览近期热点与战绩。</p>
+        </div>
+        <div class="feature-card">
+            <h3>📅 赛事前瞻</h3>
+            <p>赛前阵容分析、对阵历史与数据解读，帮助你在观赛前对比赛有基本把握。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🧾 数据参考</h3>
+            <p>积分榜、射手榜、赛程表等基础数据表格，适合球迷日常查询与对比。</p>
+        </div>
+    </div>
+
+    <div class="highlight-note">
+        <div>
+            <p><strong>关于访问与使用</strong> — 本站为开放内容站点，无需注册即可浏览大部分页面。部分交互功能（如评论或收藏）可能需要简单注册，请根据实际需要决定是否使用。网站内不含任何形式的金融、赌博或非法服务引导。</p>
+        </div>
+    </div>
+
+    <div class="use-tips">
+        <h2>日常使用建议</h2>
+        <ul>
+            <li>可以重点关注「今日赛程」与「赛后速报」栏目，信息更新较为及时。</li>
+            <li>数据类页面（如历史交锋记录）适合用桌面端浏览器打开，排版更清晰。</li>
+            <li>若发现内容异常或链接失效，可通过站内反馈渠道告知，团队会定期处理。</li>
+            <li>请勿将本站内容用于任何商业或违规用途，尊重编辑劳动成果。</li>
+        </ul>
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>这个网站和官方体育机构有关系吗？</summary>
+            <p>没有直接隶属关系。<strong>乐鱼体育</strong> 是一个独立运营的体育信息站点，所有内容均基于公开资料整理，不代表任何联赛、俱乐部或协会的官方立场。</p>
+        </details>
+        <details>
+            <summary>内容更新频率如何？</summary>
+            <p>日常情况下，重要赛事的赛后文章会在比赛结束后几小时内发布；数据类表格（如积分榜）会随官方赛果同步更新。非热门项目可能更新较慢，建议使用站内搜索查找历史内容。</p>
+        </details>
+        <details>
+            <summary>访问时需要注意什么？</summary>
+            <p>本网站不收集敏感个人信息，也不需要付费。请使用正规网络环境访问，并留意不要将个人账号透露给他人。如遇到诱导下载或异常弹窗，请立即关闭并检查设备安全。</p>
+        </details>
+    </div>
+
+    <div class="credit-line">
+        <span>如果你对体育资讯感兴趣，可以随时来 <a href="https://homeweb-leyu.com.cn">乐鱼体育</a> 看看最近有什么新鲜内容。</span>
+        <span><a href="#" class="btn-neutral">关于本站</a></span>
+    </div>
+</div>
+</body>
+</html>
