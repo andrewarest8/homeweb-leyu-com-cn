@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 资料整理与信息索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f7fafc;
+            color: #1e2c3a;
+            line-height: 1.6;
+        }
+        .wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, #e6f5f5 0%, #d4edec 100%);
+            border-radius: 2rem;
+            padding: 3rem 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 20px rgba(20, 110, 100, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(0, 180, 170, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0a3b3a;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #00897b, #2bbbad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #2b5c59;
+            max-width: 600px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(0, 150, 136, 0.12);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #00695c;
+            margin-top: 1.2rem;
+            font-weight: 500;
+        }
+        /* section base */
+        section {
+            margin-bottom: 3.2rem;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #0f3d3a;
+            border-left: 5px solid #26a69a;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 90, 80, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(0, 150, 136, 0.08);
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 110, 100, 0.1);
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #005f56;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card h3 i {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #26a69a;
+            border-radius: 50%;
+            margin-right: 0.2rem;
+        }
+        .card p {
+            color: #2d4d48;
+            font-size: 0.98rem;
+        }
+        .card .meta {
+            font-size: 0.82rem;
+            color: #5e7c78;
+            margin-top: 0.8rem;
+            border-top: 1px dashed #d0e4e0;
+            padding-top: 0.6rem;
+        }
+        /* 说明区 */
+        .detail-block {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 4px 14px rgba(0, 80, 70, 0.05);
+            border-left: 6px solid #4db6ac;
+        }
+        .detail-block p {
+            margin-bottom: 1rem;
+        }
+        .detail-block ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.8rem;
+            margin: 1.2rem 0;
+        }
+        .detail-block ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.97rem;
+            color: #1d4742;
+        }
+        .detail-block ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #26a69a;
+            font-weight: bold;
+        }
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+        .faq-item {
+            background: #f1f7f6;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            transition: background 0.2s;
+        }
+        .faq-item:hover {
+            background: #e3f0ed;
+        }
+        .faq-item .q {
+            font-weight: 600;
+            color: #004d40;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .faq-item .q::before {
+            content: 'Q';
+            background: #26a69a;
+            color: white;
+            font-size: 0.7rem;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .faq-item .a {
+            font-size: 0.92rem;
+            color: #2f5b55;
+            margin-left: 1.8rem;
+            line-height: 1.5;
+        }
+        .faq-item .a a {
+            color: #00796b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #d0e2de;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #3d6b64;
+        }
+        .footer-links .note {
+            max-width: 70%;
+        }
+        .footer-links .brand a {
+            color: #00695c;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .footer-links .brand a:hover {
+            border-bottom-color: #26a69a;
+        }
+        .footer-links .extra {
+            display: flex;
+            gap: 1.8rem;
+        }
+        .footer-links .extra a {
+            color: #43746b;
+            text-decoration: none;
+            border-bottom: 1px dotted #b0cfc8;
+        }
+        .footer-links .extra a:hover {
+            color: #004d40;
+            border-bottom-color: #00897b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.05rem;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .footer-links .note {
+                max-width: 100%;
+            }
+            .detail-block {
+                padding: 1.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 1.2rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- hero -->
+    <div class="hero">
+        <h1>让资料整理 <span>更简明</span></h1>
+        <p>无论是赛事脉络、运动百科还是信息索引，<a href="https://pages-mk.com" style="color:#00695c;text-decoration:underline;text-underline-offset:3px;">MK体育</a> 始终以清晰的结构帮助爱好者快速定位所需内容。</p>
+        <div class="tagline">📋 基于内容组织 · 非官方信息聚合</div>
+    </div>
+
+    <!-- 优势区 (网格卡片) -->
+    <section>
+        <h2 class="section-title">资料索引的特点</h2>
+        <div class="grid-2col">
+            <div class="card">
+                <h3><i></i> 分类与标签</h3>
+                <p>按运动项目、赛事年份、国家地区等多维度建立标签体系，减少筛选成本，让信息触手可及。</p>
+                <div class="meta">示例：足球 · 篮球 · 田径 · 冬季运动</div>
+            </div>
+            <div class="card">
+                <h3><i></i> 时间线整理</h3>
+                <p>赛事历史、规则变更、重要事件以时间线形式呈现，帮助读者建立整体认知，而非孤立数据。</p>
+                <div class="meta">2000年至今 · 关键节点</div>
+            </div>
+            <div class="card">
+                <h3><i></i> 交叉引用</h3>
+                <p>将运动员、赛事、记录相互链接，形成知识网络。例如从一场决赛跳转到相关纪录或背景资料。</p>
+                <div class="meta">关联深度：⭐ ⭐ ⭐ ⭐</div>
+            </div>
+            <div class="card">
+                <h3><i></i> 简洁优先</h3>
+                <p>避免冗余排版，重点突出摘要、数据来源与更新日期。适合快速浏览与核查。</p>
+                <div class="meta">移动端适配 · 低干扰</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 (从资料整理视角展开) -->
+    <section>
+        <h2 class="section-title">从信息整理到知识索引</h2>
+        <div class="detail-block">
+            <p>在信息过载的时代，爱好者往往面对零散的新闻、战报、数据。资料整理的核心不在于堆砌，而在于连接——把分散的内容归置于统一的框架之下。<a href="https://pages-mk.com" style="color:#00796b;text-decoration:underline;text-underline-offset:2px;">MK体育</a> 尝试通过目录式导览，让用户以更小的认知负荷找到感兴趣的方向。</p>
+            <p>常见的信息索引场景包括：</p>
+            <ul>
+                <li>查阅某项运动的基础规则与演变</li>
+                <li>了解历届大赛的举办地、冠军与纪录</li>
+                <li>对比不同时期运动员的成就与背景</li>
+                <li>按关键词检索相关的体育文化术语</li>
+            </ul>
+            <p style="margin-top:0.2rem;">索引本身是动态的，随着新赛事的开展、规则的调整，内容也会保持更新。这里不追求“绝对全面”，而是注重条理与可用性。</p>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 (4个问答) -->
+    <section>
+        <h2 class="section-title">常见疑问摘要</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="q">这里的资料来源可靠吗？</div>
+                <div class="a">所有内容均整理自公开可查的赛事官网、体育组织公告及权威媒体报道，并在页面中标注参考来源类型。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">是否涵盖所有体育项目？</div>
+                <div class="a">目前以主流项目（足球、篮球、网球、田径等）为主，并视反馈逐步扩展至更多领域。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">信息更新频率如何？</div>
+                <div class="a">重大赛事期间会实时补充赛果与纪录，常规内容每月进行一次核查与修订。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">如何快速找到特定内容？</div>
+                <div class="a">可使用站内分类导航或关键词搜索。同时推荐从 <a href="https://pages-mk.com" style="color:#00796b;text-decoration:underline;">MK体育</a> 的首页索引目录进入。</div>
+            </div>
+        </div>
+        <p style="margin-top:1.5rem; font-size:0.92rem; color:#3f6a62; background:#eaf3f1; padding:0.6rem 1.2rem; border-radius:30px; display:inline-block;">📌 更多问题可浏览对应板块的说明页</p>
+    </section>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <div class="note">
+            <span style="font-weight:500;">信息索引 · 非官方站点</span><br>
+            <span style="font-size:0.88rem;">以整理与呈现体育资料为初衷，致力于更友好的浏览方式。</span>
+        </div>
+        <div class="brand">
+            <a href="https://pages-mk.com">MK体育</a>
+        </div>
+        <div class="extra">
+            <a href="#">内容说明</a>
+            <a href="#">更新记录</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
